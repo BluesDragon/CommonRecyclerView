@@ -3,7 +3,7 @@
 ## Maven:
     compile 'com.drake.ui:commonrecyclerview:1.0.0'
 
-## init CommonRecyclerView
+### Init CommonRecyclerView
     CommonRecyclerView recyclerView = findViewById(R.id.id_main_commonRecyclerView);
         recyclerView.setCallback(new CommonRecyclerView.Callback() {
             @Override
@@ -26,7 +26,7 @@
     // Load Async
     recyclerView.reloadData();
 
-## ListFactory
+### ListFactory
 
     public static final int VIEW_TYPE_ITEM = 1;
 
@@ -47,7 +47,7 @@
         return null;
     }
 
-## MyViewHolder
+### MyViewHolder
     public class MyViewHolder extends BaseViewHolder {
     
         private TextView mTv;
@@ -73,7 +73,7 @@
         }
     }
 
-## MyItem
+### MyItem
     public class MyItem implements IItem {
     
         public String title;
@@ -84,17 +84,17 @@
         }
     }
 
-# Load Data
+### Load Data
     // Load Async
     recyclerView.reloadData();
     
-# Refresh List Async
+### Refresh List Async
     recyclerView.updateDataSet();
 
-# Refresh List Sync (Same to notifyDataSetChange)
+### Refresh List Sync (Same to notifyDataSetChange)
     recyclerView.updateList();
 
-# Set your Item list
+### Set your Item list
     recyclerView.setItemList(mList);
     // refresh
     recyclerView.updateDataSet();
