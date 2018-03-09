@@ -1,7 +1,7 @@
 # CommonRecyclerView
 
 ## Maven:
-    compile 'com.drake.ui:commonrecyclerview:1.0.0'
+    compile 'com.drake.ui:commonrecyclerview:1.0.2'
 
 ### Init CommonRecyclerView
     CommonRecyclerView recyclerView = findViewById(R.id.id_main_commonRecyclerView);
@@ -89,7 +89,7 @@
     recyclerView.reloadData();
     
 ### Refresh List Async
-    recyclerView.updateDataSet();
+    recyclerView.updateListAsync();
 
 ### Refresh List Sync (Same to notifyDataSetChange)
     recyclerView.updateList();
