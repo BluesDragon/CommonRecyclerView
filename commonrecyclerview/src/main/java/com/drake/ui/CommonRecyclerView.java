@@ -120,7 +120,7 @@ public class CommonRecyclerView<ITEM extends IItem> extends RecyclerView {
                             if (mCallback != null) {
                                 mCallback.filterList(mList);
                             }
-                            updateDataSet();
+                            updateList();
                             notifyDataSetChange();
                         }
                         break;
@@ -131,7 +131,7 @@ public class CommonRecyclerView<ITEM extends IItem> extends RecyclerView {
                                 mCallback.buildList(list);
                                 mList.clear();
                                 mList.addAll(list);
-                                updateList();
+                                updateListAsync();
                             }
                         }
                         break;
@@ -145,7 +145,7 @@ public class CommonRecyclerView<ITEM extends IItem> extends RecyclerView {
                                     mList.add(iItem);
                                 }
                             }
-                            updateList();
+                            updateListAsync();
                         }
                         break;
                     }
@@ -158,14 +158,14 @@ public class CommonRecyclerView<ITEM extends IItem> extends RecyclerView {
                                     mCallback.onItemRemoved(iItem);
                                 }
                             }
-                            updateList();
+                            updateListAsync();
                         }
                         break;
                     case MSG_CLEAR_LIST:
                         synchronized (mList) {
                             mList.clear();
                         }
-                        updateList();
+                        updateListAsync();
                         break;
                 }
             }
@@ -199,7 +199,7 @@ public class CommonRecyclerView<ITEM extends IItem> extends RecyclerView {
         }
     }
 
-    public void updateDataSet() {
+    public void updateList() {
         if (mHandler != null) {
             mHandler.sendEmptyMessage(MSG_UPDATE_LIST);
         }
@@ -315,7 +315,7 @@ public class CommonRecyclerView<ITEM extends IItem> extends RecyclerView {
     /**
      * 刷新列表
      */
-    public void updateList() {
+    public void updateListAsync() {
         if (mNonUIHandler != null) {
             mNonUIHandler.sendEmptyMessage(MSG_UPDATE_LIST_ASYNC);
         }

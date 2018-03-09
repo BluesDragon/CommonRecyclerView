@@ -23,4 +23,5 @@ dependencies {
     implementation 'com.android.support.constraint:constraint-layout:1.0.2'
 
     compile project(':commonrecyclerview')
+//    implementation 'com.android.support:recyclerview-v7:27.1.0'
 }

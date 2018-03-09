@@ -7,7 +7,7 @@ def gitUrl = 'https://github.com/BluesDragon/CommonRecyclerView.git'   // Git仓
 Properties properties = new Properties()
 properties.load(project.rootProject.file('local.properties').newDataInputStream())
 
-version = "1.0.0" //发布版本号
+version = VERSION //发布版本号
 group = "com.drake.ui" //最终引用形式，如compile 'com.leon.lfilepicker:1.0.0'，其中lfilepicker在后面配置
 
 android {
@@ -31,15 +31,15 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    compile 'com.android.support:design:27.1.0'
+    compile 'com.android.support:recyclerview-v7:27.1.0'
 }
 
 bintray {
     user = properties.getProperty("bintray.user")
     key = properties.getProperty("bintray.apikey")
     pkg {
-        repo = 'CommonRecyclerView'//自己创建的仓库名字
-        name = 'CommonRecyclerView'//上传到JCenter的名字,最终引用的名字
+        repo = NAME//自己创建的仓库名字
+        name = NAME//上传到JCenter的名字,最终引用的名字
         websiteUrl = siteUrl
         vcsUrl = gitUrl
         licenses = ['Apache-2.0']//不能随便写，只能是仓库创建时选择的license type
@@ -47,10 +47,10 @@ bintray {
         publish = true // 是否是公开项目，公开别人可以引用
 
         version {
-            name = '1.0.0'
-            desc = 'CommonRecyclerView.'//描述，自己定义
+            name = VERSION
+            desc = NAME//描述，自己定义
             released = new Date()
-            vcsTag = 'v1.0.0'
+            vcsTag = 'v' + VERSION
             attributes = ['gradle-plugin': 'com.use.less:com.use.less.gradle:gradle-useless-plugin']
         }
     }
@@ -64,8 +64,8 @@ install {
             project {
                 packaging 'aar'
                 // Add your description here
-                name 'CommonRecyclerView.'
-                description 'Common RecyclerView for Android.'
+                name NAME
+                description NAME + ' for Android.'
                 url siteUrl
                 // Set your license
                 licenses {
