@@ -89,10 +89,10 @@
     recyclerView.reloadData();
     
 ### Refresh List Async
-    recyclerView.updateDataSet();
+    recyclerView.updateList();
 
 ### Refresh List Sync (Same to notifyDataSetChange)
-    recyclerView.updateList();
+    recyclerView.updateDataSet();
 
 ### Set your Item list
     recyclerView.setItemList(mList);
